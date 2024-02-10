@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        .container{
+            padding: 10px;
+            display: inline-block;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            background-color: rgb(114, 143, 168);
+            
+        }
+        #display{
+            width: 18.2rem;
+            height: 1em;
+            font-size: 40px;
+            margin: 10px 5px;
+        }
+        button{
+            margin: 10px 5px;
+            font-size: 25px;
+        }
+        #delete{
+            width: 18.5rem;
+        }
+    </style>
+</head>
+<body style="background-color:whitesmoke;">
+    <div class="container">
+        <input type="text" name="" id="display" maxlength="10" disabled>
+        <div>
+            <button onclick="num('.')">.</button>
+            <button onclick="num('\(')">(</button>
+            <button onclick="num('\)')">)</button>
+            <button onclick="num('%')">%</button>
+            <button onclick="num('**')">^</button>
+            <button onclick="clearScreen()">C</button>
+            <button onclick="num(0)">0</button> <br> 
+            <button onclick="num(1)">1</button>
+            <button onclick="num(2)">2</button>
+            <button onclick="num(3)">3</button>
+            <button onclick="num(4)">4</button>
+            <button onclick="num(5)">5</button>
+            <button onclick="num(6)">6</button>
+            <button onclick="num(7)">7</button> <br>
+            <button onclick="num(8)">8</button>
+            <button onclick="num(9)">9</button>
+            <button onclick="num('+')">+</button>
+            <button onclick="num('-')">-</button>
+            <button onclick="num('*')">x</button>
+            <button onclick="num('/')">&#247;</button>
+            
+            <button  onclick="myOutput()">=</button> <br>
+            <button onclick="myDelete()" id="delete">Del</button>
+        </div>
+        <div id="output"></div>
+    </div>
+
+    <script>
+        let num = function(val) {
+            document.getElementById("display").value += val;
+            return val;
+        }
+        function myOutput() {
+            document.getElementById("display").value = eval(document.getElementById("display").value);
+
+        }
+        function clearScreen() {
+            document.getElementById("display").value = [];
+            
+        }
+        function myDelete() {
+            document.getElementById("display").value = 
+            document.getElementById("display").value.slice(0, document.getElementById("display").value.length - 1) ;
+        }
+        
+    </script>
+</body>
+</html>
